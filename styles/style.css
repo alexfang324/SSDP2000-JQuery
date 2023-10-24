@@ -1,0 +1,68 @@
+*{
+    margin:0rem;
+    padding:0rem;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+button {
+    margin:0.5rem;
+}
+
+#game{
+    width:40rem;
+    height:40rem;
+}
+
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    height:20%;
+    padding:1rem;
+    border: solid 1px black;
+    background-color: pink;
+    border-radius: 2rem 2rem 0 0 ;
+
+}
+
+#button-row {
+    display:flex;
+    justify-content: flex-end;
+    width:100%;
+}
+
+#quit-btn{
+    display:none;
+}
+
+#main {
+    width:100%;
+    height:80%;
+    border-radius: 0 0 2rem 2rem;
+    border: solid 1px black;
+    background-color: grey;
+    padding:1rem;
+}
+
+#main p{
+    padding: 0rem 2rem;
+}
+
+#game-screen{
+    display:none;
+}
+
+#game-screen button {
+    margin:0;
+}
+
+#game-over-screen{
+    display:none;
+}

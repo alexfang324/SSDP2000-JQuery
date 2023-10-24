@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="game">
+        <div id="header">
+            <h1>Assignment 2 - Pink</h1>
+            <div id="button-row">
+                <button id="quit-btn" type="button" class="btn btn-danger">Quit</button>
+
+                <button id='help-btn' type="button" class="btn btn-primary">Help</button>
+            </div>
+        </div>
+        <div id="main">
+            <div id="splash-screen">
+                <h1>Splash</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, atque! Enim quae at alias dolores.
+                    Nihil animi accusamus pariatur. Cum aliquam similique earum possimus sequi? Vel quidem ipsam autem
+                    tenetur!</p>
+                <button id="start-game-btn" type="button" class="btn btn-success">Start Game</button>
+            </div>
+            <div id="game-screen">
+                <h1>Game page</h1>
+                <p>A programmer puts two glasses on his bedside table before
+                    going to sleep. A full one, in case he gets thirsty, and
+                    an empty one, in case he doesn't
+                </p>
+                <button id="puase-btn" type="button" class="btn btn-success">Pause</button>
+                <button type="button"
+                    class="btn btn-warning">End Game</button>
+
+            </div>
+            <div id="game-over-screen">
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
