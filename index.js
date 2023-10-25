@@ -1,6 +1,7 @@
 'use strict';
 const game = {
   isRunning: false,
+  wasRunning:false,
   screenId: 'splash-screen',
   $gameElement: $('#game'),
   $gameBodyElement: $('#game-body'),
@@ -13,7 +14,7 @@ const game = {
   $quitBtn: $('#quit-btn'),
   $playAgainBtn: $('#play-again-btn'),
   $gameOverQuitBtn: $('#game-over-quit-btn'),
-  $modalCloseBtns: $('btn.close'),
+  $modalCloseBtns: $('button.close'),
   startGame: function () {
     game.isRunning = true;
     game.setScreen('game-screen');
@@ -35,7 +36,8 @@ const game = {
     btnText == 'Pause'
       ? game.$pauseBtn.text('Resume')
       : game.$pauseBtn.text('Pause');
-    //toggle game running state
+    //update wasRunning and toggle game running state
+    game.wasRunning = game.isRunning;
     game.isRunning = !game.isRunning;
 
     //toggle game background and border
@@ -55,12 +57,15 @@ const game = {
     game.screenId == 'game-screen'
       ? $('#gameplay-modal').modal('show')
       : $('#setup-modal').modal('show');
+    game.wasRunning = game.isRunning;
     game.isRunning = false;
+    game.setGameBackground();
   },
   onModalClosed: function () {
-    if (game.screenId == 'game-screen') {
+    if (game.screenId == 'game-screen' && game.wasRunning) {
       game.isRunning = true;
     }
+    game.setGameBackground();
   },
   setGameBackground: function () {
     if (game.isRunning) {
