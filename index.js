@@ -14,7 +14,6 @@ const game = {
   $quitBtn: $('#quit-btn'),
   $playAgainBtn: $('#play-again-btn'),
   $gameOverQuitBtn: $('#game-over-quit-btn'),
-  $modalCloseBtns: $('button.close'),
   startGame: function () {
     game.isRunning = true;
     game.setScreen('game-screen');
@@ -30,6 +29,8 @@ const game = {
     game.setScreen('splash-screen');
     game.setGameBackground();
   },
+
+  //toggle game state when clicking Pause/Resume button
   toggleRunning: function () {
     //toggle pause button text
     const btnText = game.$pauseBtn.text();
@@ -43,6 +44,8 @@ const game = {
     //toggle game background and border
     game.setGameBackground();
   },
+
+  //Decide which screen to show based on current screenId
   setScreen: function (screenId) {
     game.screenId = screenId;
     game.$gameBodyElement.children().hide();
@@ -53,6 +56,8 @@ const game = {
       ? $('#help-btn').hide()
       : $('#help-btn').show();
   },
+
+  //Decide which instruction to show in modal
   getInstruction: function () {
     game.screenId == 'game-screen'
       ? $('#gameplay-modal').modal('show')
@@ -61,12 +66,16 @@ const game = {
     game.isRunning = false;
     game.setGameBackground();
   },
+
+  //Sets game back to game on mode if it was on when opening modal
   onModalClosed: function () {
     if (game.screenId == 'game-screen' && game.wasRunning) {
       game.isRunning = true;
     }
     game.setGameBackground();
   },
+  
+  //Sets background and border style based on game state
   setGameBackground: function () {
     if (game.isRunning) {
       game.$gameElement.css('border', 'dashed 5px darkgreen');
@@ -81,6 +90,7 @@ const game = {
   }
 };
 
+//Add event listeners on DOM loaded
 $(() => {
   game.$startBtn.on('click', game.startGame);
   game.$pauseBtn.on('click', game.toggleRunning);
@@ -91,5 +101,5 @@ $(() => {
   game.$gameOverQuitBtn.on('click', () => {
     game.setScreen('splash-screen');
   });
-  game.$modalCloseBtns.on('click', game.onModalClosed);
+  $('#gameplay-modal').on('hidden.bs.modal', game.onModalClosed)
 });
