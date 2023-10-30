@@ -25,6 +25,11 @@ button {
     border-radius: 2rem;
 }
 
+#game.active{
+    border:dashed 10px darkgreen;
+
+}
+
 #game-header{
     display: flex;
     flex-direction: column;
@@ -58,6 +63,10 @@ button {
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+#game-body.active{
+    background-image: url("./game-background.png");
 }
 
 #game-body p{
